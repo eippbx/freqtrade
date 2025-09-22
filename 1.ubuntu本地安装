@@ -1,0 +1,67 @@
+## Ubuntu 20.4.6 LTS 安装Freqtrade
+> 新建用户来安装conda
+
+```bash
+useradd freqtrade
+passwd freqtrade
+su freqtrade
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+chmod 777 Miniconda3-latest-Linux-x86_64.sh
+./Miniconda3-latest-Linux-x86_64.sh
+```
+> 安装完后参照：
+https://www.freqtrade.io/en/stable/installation/#installation-with-conda
+
+```bash
+# download freqtrade
+git clone https://github.com/freqtrade/freqtrade.git
+
+# enter downloaded directory 'freqtrade'
+cd freqtrade
+conda create --name freqtrade python=3.12
+
+    Do you accept the Terms of Service (ToS) for https://repo.anaconda.com/pkgs/main? [(a)ccept/(r)eject/(v)iew]: a
+    Do you accept the Terms of Service (ToS) for https://repo.anaconda.com/pkgs/r? [(a)ccept/(r)eject/(v)iew]: a
+    Preparing transaction: done
+    Verifying transaction: done
+    Executing transaction: done
+    #
+    # To activate this environment, use
+    #
+    #     $ conda activate freqtrade
+    #
+    # To deactivate an active environment, use
+    #
+    #     $ conda deactivate
+
+
+```
+> 进入 conda freqtrade
+
+```bash
+(base) r720@r720-PowerEdge-R720:~/freqtrade_local/freqtrade$ conda activate freqtrade
+(freqtrade) r720@r720-PowerEdge-R720:~/freqtrade_local/freqtrade$
+
+```
+> 使用pip安装最后一个python依赖项
+
+```bash
+python3 -m pip install --upgrade pip
+python3 -m pip install -r requirements.txt
+python3 -m pip install -e .
+```
+> 关于conda的命令
+
+```bash
+# 查看当前conda的所有生成的应用项目
+conda env list
+
+# 激活基本的conda环境
+conda activate
+
+# 激活 freqtrade 激活基本的conda环境
+conda activate freqtrade
+
+#退出当前的conda环境
+conda deactivate
+```

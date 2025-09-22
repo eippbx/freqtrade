@@ -1,0 +1,36 @@
+## 初始化配置：
+```bash
+# Step 1 - Initialize user folder
+freqtrade create-userdir --userdir user_data
+
+# Step 2 - Create a new configuration file
+freqtrade new-config --config user_data/config.json
+```
+
+Q:A
+? Do you want to enable Dry-run (simulated trades)? Yes
+? Please insert your stake currency: USDT
+? Please insert your stake amount (Number or 'unlimited'): unlimited
+? Please insert max_open_trades (Integer or -1 for unlimited open trades): 3
+? Time Have the strategy define timeframe.
+? Please insert your display Currency for reporting (leave empty to disable FIAT conversion): USD
+? Select exchange okx
+? Do you want to trade Perpetual Swaps (perpetual futures)? No
+? Do you want to enable Telegram? No
+? Do you want to enable the Rest API (includes FreqUI)? Yes
+? Insert Api server Listen Address (0.0.0.0 for docker, otherwise best left untouched) 0.0.0.0
+? Insert api-server username freqtrader
+? Insert api-server password ******
+
+> 以上会在 user_data下生成config.json配置文件，可以对其进行修改，请参照：
+https://www.itrade.icu/zh/freqtrade/config/basic-introduction-and-initialization.html
+
+#### 现在我们可以启动 freqtrade 的机器人试一下看一下系统是否正常
+```bash
+freqtrade trade --config user_data/config.json --strategy SampleStrategy
+```
+
+#### 安装web ui
+```bash
+freqtrade install-ui
+```
